@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Birthday Surprise</title>
+<style>
+:root{--cream:#fff7f3;--rose:#e99aa6;--ink:#382b30;--paper:#fffaf7;--dark:#21181c}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#171114;font-family:Georgia,'Times New Roman',serif;color:var(--ink)}
+body{touch-action:none}
+#app{position:relative;width:100%;height:100%;overflow:hidden}
+.page{position:absolute;inset:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;visibility:hidden;opacity:0;transform:translateX(100%);transition:transform .55s cubic-bezier(.2,.75,.2,1),opacity .35s ease;overflow:hidden}
+.page.active{visibility:visible;opacity:1;transform:translateX(0)}
+.page.prev{visibility:visible;opacity:0;transform:translateX(-100%)}
+.bg{position:absolute;inset:0;z-index:0}
+.page-inner{position:relative;z-index:2;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;overflow:auto;overscroll-behavior:contain}
+.glow{position:absolute;border-radius:50%;filter:blur(20px);opacity:.45;pointer-events:none}
+.petal{position:absolute;font-size:24px;opacity:.55;animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px) rotate(8deg)}}
+@keyframes pulse{50%{transform:scale(1.04)}}
+
+/* Page 1 */
+#p1{background:radial-gradient(circle at 50% 30%,#4b2931 0,#24171c 42%,#120d10 100%)}
+#p1 .page-inner{justify-content:center;text-align:center}
+.open-title{font-family:'Trebuchet MS',sans-serif;font-size:clamp(34px,9vw,72px);font-weight:800;letter-spacing:.06em;line-height:1.05;color:#fff4f0;text-shadow:0 0 25px #eaa0aa;max-width:800px}
+.open-sub{margin-top:22px;color:#f4cbd0;font:500 15px/1.4 'Trebuchet MS',sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.open-btn{margin-top:34px;border:1px solid rgba(255,255,255,.7);background:rgba(255,190,201,.18);color:white;border-radius:999px;padding:16px 34px;font:700 17px 'Trebuchet MS',sans-serif;box-shadow:0 0 30px rgba(239,155,169,.25);animation:pulse 2.3s ease-in-out infinite}
+
+/* Page 2 */
+#p2{background:#2a1d20}
+.hero-img{width:min(100%,520px);height:100%;object-fit:cover;object-position:center;display:block;filter:saturate(.98)}
+.page2-caption{position:absolute;bottom:max(24px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:#fff;font:600 15px 'Trebuchet MS',sans-serif;text-shadow:0 2px 8px #000;z-index:4;pointer-events:none}
+
+/* Page 3 */
+#p3{background:radial-gradient(circle at 20% 10%,#fff,#fff4ef 55%,#f2d8d2)}
+.paper{width:min(92%,760px);max-height:92%;overflow:auto;background:rgba(255,255,255,.7);border:1px solid rgba(188,123,132,.28);box-shadow:0 18px 55px rgba(84,45,53,.15);border-radius:22px;padding:clamp(28px,7vw,58px) clamp(24px,8vw,70px);position:relative}
+.paper:before,.paper:after{content:'♡';position:absolute;color:#d98b98;font-size:28px;opacity:.7}.paper:before{top:16px;left:20px}.paper:after{right:20px;bottom:12px}
+.message3{white-space:pre-line;text-align:center;font-size:clamp(17px,4.2vw,24px);line-height:1.75;color:#3b2b30}
+
+/* Page 4 */
+#p4{background:#1d1518}
+.memory-card{width:min(88%,560px);text-align:center;color:#fff}
+.memory-card img{width:100%;max-height:70vh;object-fit:cover;border:10px solid #fffaf5;box-shadow:0 20px 55px rgba(0,0,0,.45);transform:rotate(-1.2deg)}
+.memory-caption{margin-top:25px;font-size:clamp(23px,6vw,34px);font-style:italic;line-height:1.25;color:#ffe9e4}
+
+/* Page 5 */
+#p5{background:linear-gradient(135deg,#24191d,#382229 45%,#171114)}
+.last-page{width:100%;height:100%;overflow:auto;padding:32px 18px 55px;display:flex;flex-direction:column;align-items:center;gap:22px;overscroll-behavior:contain}
+.last-title{font-size:clamp(25px,6.5vw,42px);color:#fff2ee;text-align:center;line-height:1.2;margin:6px 0 2px}
+.divider{color:#e9aab2;font-size:24px}
+.collage{width:min(96%,900px);display:grid;grid-template-columns:repeat(3,1fr);gap:9px;align-items:stretch}
+.collage figure{margin:0;background:#fff8f4;padding:5px;box-shadow:0 8px 20px rgba(0,0,0,.22);border-radius:4px}
+.collage img{width:100%;height:clamp(105px,19vw,210px);object-fit:cover;display:block}
+.collage figure:nth-child(2n){transform:rotate(1.2deg)}.collage figure:nth-child(3n){transform:rotate(-1.3deg)}
+.last-message{width:min(94%,820px);background:rgba(255,248,244,.96);color:#3a2a2f;border-radius:18px;padding:26px 22px;white-space:pre-line;text-align:center;font-size:clamp(16px,4.1vw,22px);line-height:1.8;box-shadow:0 15px 45px rgba(0,0,0,.25)}
+
+.nav-hint{position:absolute;bottom:max(12px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:rgba(255,255,255,.68);font:12px 'Trebuchet MS',sans-serif;z-index:5;pointer-events:none;letter-spacing:.05em}
+#p3 .nav-hint,#p4 .nav-hint{color:rgba(80,49,55,.65)}
+.hidden{display:none}
+@media(min-width:700px){.page-inner{padding:40px}.collage{gap:13px}.last-page{padding:42px 32px 65px}}
+</style>
+</head>
+<body>
+<div id="app">
+<section class="page active" id="p1">
+  <div class="bg"><span class="petal" style="left:12%;top:18%">♡</span><span class="petal" style="right:14%;top:25%;animation-delay:1s">✦</span><span class="petal" style="left:18%;bottom:20%;animation-delay:2s">♡</span><span class="petal" style="right:20%;bottom:16%;animation-delay:.5s">✧</span></div>
+  <div class="page-inner">
+    <div class="open-title">OPEN YOUR<br>SURPRISE</div>
+    <div class="open-sub">A little birthday surprise</div>
+    <button class="open-btn" id="openBtn">OPEN ♡</button>
+  </div>
+</section>
+
+<section class="page" id="p2">
+  <img class="hero-img" src="assets/page2_cat_cake.png" alt="Cute cat holding a birthday cake for Jan">
+  <div class="page2-caption">Swipe to continue →</div>
+</section>
+
+<section class="page" id="p3">
+  <div class="page-inner">
+    <div class="paper">
+      <div class="message3">Happy Birthday love😘😘👩‍❤️‍💋‍👨🎂
+You are my life, my peace, and my favorite blessing.
+May Allah fill your year with health, joy, and success.
+I love you more every single day.😘
+
+To the owner of my heart my nazuk kale🌝
+Happy Birthday my love😘😘
+Thank you for adding colour in my life and make it so beautiful.😍😘
+
+Happy Birthday jan 😘😘</div>
+    </div>
+  </div>
+  <div class="nav-hint">Swipe to continue →</div>
+</section>
+
+<section class="page" id="p4">
+  <div class="page-inner">
+    <div class="memory-card">
+      <img src="assets/memory.jpg" alt="Memory of two hands with hearts">
+      <div class="memory-caption">A little memory, kept forever.</div>
+    </div>
+  </div>
+  <div class="nav-hint">Swipe to continue →</div>
+</section>
+
+<section class="page" id="p5">
+  <div class="last-page">
+    <div class="last-title">Happy Birthday Once Again, My Love 😘❤️</div>
+    <div class="divider">♡</div>
+    <div class="collage">
+      <figure><img src="assets/memory_collage_1.jpg" alt="Memory photo 1"></figure>
+      <figure><img src="assets/memory_collage_2.jpg" alt="Memory photo 2"></figure>
+      <figure><img src="assets/memory_collage_3.jpg" alt="Memory photo 3"></figure>
+      <figure><img src="assets/memory_collage_4.jpg" alt="Memory photo 4"></figure>
+      <figure><img src="assets/memory_collage_5.jpg" alt="Memory photo 5"></figure>
+      <figure><img src="assets/memory_collage_6.jpg" alt="Memory photo 6"></figure>
+      <figure><img src="assets/memory_collage_7.jpg" alt="Memory photo 7"></figure>
+      <figure><img src="assets/memory_collage_8.jpg" alt="Memory photo 8"></figure>
+      <figure><img src="assets/memory_collage_9.jpg" alt="Memory photo 9"></figure>
+    </div>
+    <div class="last-message">Mei ap sy bhut muhabat krti hu jan ap k sath apni zindagi k hr moment jena chati hu
+I really really love you 😘
+Ap k meri zindagi mei ana or us k bd mery dill k itny qareeb ho jana or meri ruh k hisa ban jana ..
+Ap meri leya meri sanso sy barh k ho ap k bager mei apni zindagi k tasawar nhi kr sakti
+I love you my love😘😘😘😘
+I really miss you my oogloo bogloo</div>
+    <div class="divider">♡</div>
+  </div>
+</section>
+</div>
+<script>
+const pages=[...document.querySelectorAll('.page')];
+let current=0, locked=false;
+function show(i){
+  if(i<0||i>=pages.length||i===current||locked)return;
+  locked=true;
+  pages[current].classList.remove('active');
+  pages[current].classList.add(i>current?'prev':'active');
+  pages[i].classList.remove('prev');
+  pages[i].classList.add('active');
+  const old=current; current=i;
+  setTimeout(()=>{pages[old].classList.remove('prev');locked=false},600);
+}
+function next(){show(current+1)}
+function prev(){show(current-1)}
+document.getElementById('openBtn').addEventListener('click',next);
+let sx=0,sy=0,st=0;
+document.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;sx=e.touches[0].clientX;sy=e.touches[0].clientY;st=Date.now()},{passive:true});
+document.addEventListener('touchend',e=>{if(!sx)return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;const dt=Date.now()-st;sx=0;if(dt>900||Math.abs(dx)<55||Math.abs(dx)<Math.abs(dy)*1.15)return;if(dx<0)next();else prev()},{passive:true});
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ')next();if(e.key==='ArrowLeft'||e.key==='ArrowUp')prev()});
+</script>
+</body>
+</html>

@@ -55,7 +55,7 @@ body{touch-action:none}
 .collage figure:nth-child(2n){transform:rotate(1.2deg)}.collage figure:nth-child(3n){transform:rotate(-1.3deg)}
 .last-message{width:min(94%,820px);background:rgba(255,248,244,.96);color:#3a2a2f;border-radius:18px;padding:26px 22px;white-space:pre-line;text-align:center;font-size:clamp(16px,4.1vw,22px);line-height:1.8;box-shadow:0 15px 45px rgba(0,0,0,.25)}
 
-.nav-hint{position:absolute;bottom:max(12px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:rgba(255,255,255,.68);font:12px 'Trebuchet MS',sans-serif;z-index:5;pointer-events:none;letter-spacing:.05em}
+.nav-hint{position:absolute;bottom:max(12px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:rgba(255,255,255,.68);font:12px 'Trebuchet MS',sans-serif;z-index:5;cursor:pointer;letter-spacing:.05em}
 #p3 .nav-hint,#p4 .nav-hint{color:rgba(80,49,55,.65)}
 .hidden{display:none}
 @media(min-width:700px){.page-inner{padding:40px}.collage{gap:13px}.last-page{padding:42px 32px 65px}}
@@ -147,6 +147,7 @@ function next(){show(current+1)}
 function prev(){show(current-1)}
   document.getElementById('openBtn').addEventListener('click',next);
 document.querySelector('#p2 .page2-caption').addEventListener('click',next);
+ document.querySelector('#p3 .nav-hint').addEventListener('click',next); 
 let sx=0,sy=0,st=0;
 document.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;sx=e.touches[0].clientX;sy=e.touches[0].clientY;st=Date.now()},{passive:true});
 document.addEventListener('touchend',e=>{if(!sx)return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;const dt=Date.now()-st;sx=0;if(dt>900||Math.abs(dx)<55||Math.abs(dx)<Math.abs(dy)*1.15)return;if(dx<0)next();else prev()},{passive:true});

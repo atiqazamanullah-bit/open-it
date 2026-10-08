@@ -145,6 +145,7 @@ function show(i){
 }
 function next(){show(current+1)}
 function prev(){show(current-1)}
+  document.getElementById('openBtn').addEventListener('click',next);
 document.querySelector('#p2 .page2-caption').addEventListener('click',next);
 let sx=0,sy=0,st=0;
 document.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;sx=e.touches[0].clientX;sy=e.touches[0].clientY;st=Date.now()},{passive:true});

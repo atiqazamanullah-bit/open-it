@@ -31,7 +31,13 @@ body{touch-action:none}
 .open-title{font-family:'Trebuchet MS',sans-serif;font-size:clamp(34px,9vw,72px);font-weight:800;letter-spacing:.06em;line-height:1.05;color:#fff4f0;text-shadow:0 0 25px #eaa0aa;max-width:800px}
 .open-sub{margin-top:22px;color:#f4cbd0;font:500 15px/1.4 'Trebuchet MS',sans-serif;letter-spacing:.16em;text-transform:uppercase}
 .open-btn{margin-top:34px;border:1px solid rgba(255,255,255,.7);background:rgba(255,190,201,.18);color:white;border-radius:999px;padding:16px 34px;font:700 17px 'Trebuchet MS',sans-serif;box-shadow:0 0 30px rgba(239,155,169,.25);animation:pulse 2.3s ease-in-out infinite}
-
+.personal-line{
+  margin-top:18px;
+  color:#f3cbd1;
+  font:italic 16px Georgia,serif;
+  letter-spacing:.03em;
+  text-shadow:0 2px 10px rgba(235,145,160,.25);
+}
 /* Page 2 */
 #p2{background:#2a1d20}
 .hero-img{width:100%;max-width:520px;height:auto;max-height:78vh;object-fit:contain;object-position:center;display:block;filter:saturate(.98)}
@@ -59,6 +65,13 @@ body{touch-action:none}
 .paper:before,.paper:after{content:'♡';position:absolute;color:#d98b98;font-size:28px;opacity:.7}.paper:before{top:16px;left:20px}.paper:after{right:20px;bottom:12px}
 .message3{white-space:pre-line;text-align:center;font-size:clamp(17px,4.2vw,24px);line-height:1.75;color:#3b2b30}
 
+  .paper-note{
+  text-align:center;
+  color:#a75b6c;
+  font:italic 15px Georgia,serif;
+  margin-bottom:16px;
+  letter-spacing:.04em;
+}
 /* Page 4 */
 #p4{
   background:
@@ -81,13 +94,21 @@ body{touch-action:none}
   left:8%;
   transform:rotate(-15deg);
 }
-
+.memory-card:before{
+  content:'♡';
+  display:block;
+  color:#e6a0ad;
+  font-size:26px;
+  margin-bottom:4px;
+  opacity:.8;
+}
 #p4:after{
   right:8%;
   bottom:10%;
   transform:rotate(15deg);
 } 
 .memory-card{width:min(88%,560px);text-align:center;color:#fff}
+  
 .memory-card img{width:100%;max-height:70vh;object-fit:cover;border:10px solid #fffaf5;box-shadow:0 20px 55px rgba(0,0,0,.45);transform:rotate(-1.2deg)}
 .memory-caption{margin-top:25px;font-size:clamp(23px,6vw,34px);font-style:italic;line-height:1.25;color:#ffe9e4}
 
@@ -122,7 +143,13 @@ body{touch-action:none}
   font-weight:600;
   text-shadow:0 3px 18px rgba(220,120,140,.35);
 }
-
+.personal-note{
+  color:#e8adb6;
+  font:italic 15px Georgia,serif;
+  letter-spacing:.05em;
+  margin-top:-3px;
+  text-shadow:0 2px 10px rgba(230,140,155,.25);
+}
 .divider{
   color:#e9aab2;
   font-size:17px;
@@ -145,7 +172,18 @@ body{touch-action:none}
   border-radius:9px;
   border:1px solid rgba(255,255,255,.7);
   box-shadow:0 6px 16px rgba(0,0,0,.30),0 0 10px rgba(235,145,160,.08);
+  transition:transform .25s ease, box-shadow .25s ease;
 }
+
+.collage figure:nth-child(1){transform:rotate(-2deg)}
+.collage figure:nth-child(2){transform:rotate(1.5deg)}
+.collage figure:nth-child(3){transform:rotate(-1deg)}
+.collage figure:nth-child(4){transform:rotate(1deg)}
+.collage figure:nth-child(5){transform:rotate(-2deg)}
+.collage figure:nth-child(6){transform:rotate(1.5deg)}
+.collage figure:nth-child(7){transform:rotate(-1deg)}
+.collage figure:nth-child(8){transform:rotate(1deg)}
+.collage figure:nth-child(9){transform:rotate(-2deg)}
 
 .collage img{
   width:100%;
@@ -223,8 +261,21 @@ body{touch-action:none}
   }
 
   .last-message{
-    width:520px;
-  }
+  width:min(88%,470px);
+  background:linear-gradient(145deg,rgba(255,249,246,.98),rgba(250,232,231,.97));
+  color:#39282e;
+  border:1px solid rgba(218,139,151,.35);
+  border-radius:24px;
+  padding:19px 18px;
+  white-space:pre-line;
+  text-align:center;
+  font-family:Georgia,serif;
+  font-weight:600;
+  font-size:clamp(14px,3.6vw,18px);
+  line-height:1.55;
+  box-shadow:0 12px 30px rgba(0,0,0,.30),0 0 22px rgba(225,137,153,.13);
+  position:relative;
+}
 }
 
 .nav-hint{position:absolute;bottom:max(12px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:rgba(255,255,255,.68);font:12px 'Trebuchet MS',sans-serif;z-index:5;cursor:pointer;letter-spacing:.05em}
@@ -260,8 +311,8 @@ body{touch-action:none}
   <div class="bg"><span class="petal" style="left:12%;top:18%">♡</span><span class="petal" style="right:14%;top:25%;animation-delay:1s">✦</span><span class="petal" style="left:18%;bottom:20%;animation-delay:2s">♡</span><span class="petal" style="right:20%;bottom:16%;animation-delay:.5s">✧</span></div>
   <div class="page-inner">
     <div class="open-title">OPEN YOUR<br>SURPRISE</div>
-  
-    <button class="open-btn" id="openBtn">OPEN ♡</button>
+<div class="personal-line">For the one who makes my world a little softer ♡</div>
+<button class="open-btn" id="openBtn">OPEN ♡</button>
   </div>
 </section>
 
@@ -272,8 +323,9 @@ body{touch-action:none}
 
 <section class="page" id="p3">
   <div class="page-inner">
-    <div class="paper">
-      <div class="message3">Happy Birthday love😘😘👩‍❤️‍💋‍👨🎂
+   <div class="paper">
+  <div class="paper-note">From my heart to yours ♡</div>
+  <div class="message3">Happy Birthday love😘😘👩‍❤️‍💋‍👨🎂
 You are my life, my peace, and my favorite blessing.
 May Allah fill your year with health, joy, and success.
 I love you more every single day.😘
@@ -291,6 +343,14 @@ Happy Birthday jan 😘😘</div>
 <section class="page" id="p4">
   <div class="page-inner">
     <div class="memory-card">
+      .memory-card:before{
+  content:'♡';
+  display:block;
+  color:#e6a0ad;
+  font-size:26px;
+  margin-bottom:4px;
+  opacity:.8;
+}
       <img src="memory.jpg" alt="Memory of two hands with hearts">
       <div class="memory-caption">A little memory, kept forever.</div>
     </div>
@@ -300,7 +360,8 @@ Happy Birthday jan 😘😘</div>
 
 <section class="page" id="p5">
   <div class="last-page">
-    <div class="last-title">Happy Birthday Once Again, My Love 😘❤️</div>
+    <div class="last-title">Happy Birthday Once Again, My husband 😘❤️</div>
+    <div class="personal-note">Just for you, Janam ♡</div>
     <div class="divider">♡</div>
     <div class="collage">
        <figure><img src="memory_collage_1.jpg" alt="Memory photo 1"></figure>

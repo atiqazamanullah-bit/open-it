@@ -53,55 +53,57 @@ body{touch-action:none}
   width:100%;
   height:100%;
   overflow:auto;
-  padding:24px 14px 40px;
+  padding:20px 12px 35px;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:14px;
+  gap:11px;
   overscroll-behavior:contain;
 }
 
 .last-title{
   width:100%;
-  font-size:clamp(22px,5.5vw,34px);
+  font-size:clamp(21px,5vw,32px);
   color:#fff2ee;
   text-align:center;
   line-height:1.25;
-  margin:4px 0 0;
+  margin:2px 0 0;
   font-family:Georgia,serif;
   font-weight:600;
 }
 
 .divider{
   color:#e9aab2;
-  font-size:18px;
-  margin-top:-5px;
+  font-size:17px;
+  margin:0;
 }
 
+/* Small cute photo clips */
 .collage{
-  width:min(88%,440px);
+  width:min(82%,390px);
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:7px;
-  padding:5px;
+  gap:6px;
+  padding:3px;
 }
 
 .collage figure{
   margin:0;
   background:#fff8f4;
-  padding:4px;
-  border-radius:8px;
-  box-shadow:0 5px 14px rgba(0,0,0,.28);
+  padding:3px;
+  border-radius:6px;
+  box-shadow:0 4px 10px rgba(0,0,0,.25);
 }
 
 .collage img{
   width:100%;
-  height:clamp(72px,20vw,105px);
+  height:clamp(65px,18vw,92px);
   object-fit:cover;
   display:block;
-  border-radius:5px;
+  border-radius:4px;
 }
 
+/* Natural scrapbook angles */
 .collage figure:nth-child(1),
 .collage figure:nth-child(5),
 .collage figure:nth-child(9){
@@ -123,39 +125,39 @@ body{touch-action:none}
   transform:rotate(1deg);
 }
 
+/* Original message — wording stays exactly the same */
 .last-message{
-  width:min(92%,520px);
-  background:rgba(255,248,244,.97);
+  width:min(88%,470px);
+  background:rgba(255,248,244,.98);
   color:#3a2a2f;
-  border-radius:16px;
-  padding:15px 18px;
+  border-radius:20px;
+  padding:17px 18px;
   white-space:pre-line;
   text-align:center;
   font-family:Georgia,serif;
   font-weight:600;
-  font-size:clamp(14px,3.7vw,18px);
+  font-size:clamp(14px,3.6vw,18px);
   line-height:1.55;
-  letter-spacing:.1px;
-  box-shadow:0 8px 24px rgba(0,0,0,.25);
+  box-shadow:0 8px 22px rgba(0,0,0,.24);
 }
 
 @media(min-width:700px){
   .last-page{
-    padding:30px 25px 50px;
-    gap:18px;
+    padding:28px 25px 45px;
+    gap:15px;
   }
 
   .collage{
-    width:min(80%,500px);
-    gap:9px;
+    width:380px;
+    gap:8px;
   }
 
   .collage img{
-    height:115px;
+    height:95px;
   }
 
   .last-message{
-    width:min(82%,600px);
+    width:520px;
   }
 }
 
@@ -214,8 +216,7 @@ Happy Birthday jan 😘😘</div>
     <div class="last-title">Happy Birthday Once Again, My Love 😘❤️</div>
     <div class="divider">♡</div>
     <div class="collage">
-    <div class="collage">
-  <figure><img src="memory_collage_1.jpg" alt="Memory photo 1"></figure>
+       <figure><img src="memory_collage_1.jpg" alt="Memory photo 1"></figure>
   <figure><img src="memory_collage_2.jpg" alt="Memory photo 2"></figure>
   <figure><img src="memory_collage_3.jpg" alt="Memory photo 3"></figure>
   <figure><img src="memory_collage_4.jpg" alt="Memory photo 4"></figure>

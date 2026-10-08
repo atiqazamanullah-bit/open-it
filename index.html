@@ -49,11 +49,54 @@ body{touch-action:none}
 .last-page{width:100%;height:100%;overflow:auto;padding:32px 18px 55px;display:flex;flex-direction:column;align-items:center;gap:22px;overscroll-behavior:contain}
 .last-title{font-size:clamp(25px,6.5vw,42px);color:#fff2ee;text-align:center;line-height:1.2;margin:6px 0 2px}
 .divider{color:#e9aab2;font-size:24px}
-.collage{width:min(96%,900px);display:grid;grid-template-columns:repeat(3,1fr);gap:9px;align-items:stretch}
-.collage figure{margin:0;background:#fff8f4;padding:5px;box-shadow:0 8px 20px rgba(0,0,0,.22);border-radius:4px}
-.collage img{width:100%;height:clamp(105px,19vw,210px);object-fit:cover;display:block}
-.collage figure:nth-child(2n){transform:rotate(1.2deg)}.collage figure:nth-child(3n){transform:rotate(-1.3deg)}
-.last-message{width:min(94%,820px);background:rgba(255,248,244,.96);color:#3a2a2f;border-radius:18px;padding:26px 22px;white-space:pre-line;text-align:center;font-size:clamp(16px,4.1vw,22px);line-height:1.8;box-shadow:0 15px 45px rgba(0,0,0,.25)}
+.collage{
+  width:min(92%,520px);
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  padding:4px;
+  align-items:center;
+}
+
+.collage figure{
+  margin:0;
+  background:#fff8f4;
+  padding:4px;
+  box-shadow:0 6px 15px rgba(0,0,0,.25);
+  border-radius:7px;
+}
+
+.collage img{
+  width:100%;
+  height:clamp(78px,23vw,125px);
+  object-fit:cover;
+  display:block;
+  border-radius:3px;
+}
+
+.collage figure:nth-child(2n){
+  transform:rotate(1.5deg);
+}
+
+.collage figure:nth-child(3n){
+  transform:rotate(-1.5deg);
+}
+
+.last-message{
+  width:min(91%,520px);
+  background:rgba(255,248,244,.97);
+  color:#3a2a2f;
+  border-radius:18px;
+  padding:18px 17px;
+  white-space:pre-line;
+  text-align:center;
+  font-family:'Trebuchet MS',sans-serif;
+  font-weight:700;
+  font-size:clamp(15px,3.8vw,19px);
+  line-height:1.65;
+  letter-spacing:.2px;
+  box-shadow:0 10px 28px rgba(0,0,0,.25);
+}
 
 .nav-hint{position:absolute;bottom:max(12px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:rgba(255,255,255,.68);font:12px 'Trebuchet MS',sans-serif;z-index:5;cursor:pointer;letter-spacing:.05em}
 #p3 .nav-hint,#p4 .nav-hint{color:rgba(80,49,55,.65)}

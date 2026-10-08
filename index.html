@@ -29,8 +29,8 @@ body{touch-action:none}
 
 /* Page 2 */
 #p2{background:#2a1d20}
-.hero-img{width:min(100%,520px);height:100%;object-fit:cover;object-position:center;display:block;filter:saturate(.98)}
-.page2-caption{position:absolute;bottom:max(24px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:#fff;font:600 15px 'Trebuchet MS',sans-serif;text-shadow:0 2px 8px #000;z-index:4;pointer-events:none}
+.hero-img{width:100%;max-width:520px;height:auto;max-height:78vh;object-fit:contain;object-position:center;display:block;filter:saturate(.98)}
+.page2-caption{position:absolute;bottom:max(24px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:#fff;font:600 15px 'Trebuchet MS',sans-serif;text-shadow:0 2px 8px #000;z-index:4;cursor:pointer}
 
 /* Page 3 */
 #p3{background:radial-gradient(circle at 20% 10%,#fff,#fff4ef 55%,#f2d8d2)}
@@ -145,7 +145,7 @@ function show(i){
 }
 function next(){show(current+1)}
 function prev(){show(current-1)}
-document.getElementById('openBtn').addEventListener('click',next);
+document.querySelector('#p2 .page2-caption').addEventListener('click',next);
 let sx=0,sy=0,st=0;
 document.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;sx=e.touches[0].clientX;sy=e.touches[0].clientY;st=Date.now()},{passive:true});
 document.addEventListener('touchend',e=>{if(!sx)return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;const dt=Date.now()-st;sx=0;if(dt>900||Math.abs(dx)<55||Math.abs(dx)<Math.abs(dy)*1.15)return;if(dx<0)next();else prev()},{passive:true});

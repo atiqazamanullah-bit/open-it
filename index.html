@@ -816,6 +816,216 @@ body{touch-action:none}
   }
 }
 
+/* FINAL OVERRIDES — OLD VINTAGE ROMANTIC THEME */
+
+/* Page 3: keep the antique love letter */
+#p3 .page-inner {
+  justify-content: flex-start;
+  align-items: center;
+  padding: 18px 12px 82px;
+  overflow-y: auto;
+}
+
+#p3 .paper {
+  width: min(94%, 620px);
+  flex-shrink: 0;
+  margin: 8px auto 20px;
+  padding: 38px 28px;
+  background:
+    radial-gradient(ellipse at 15% 10%, #fff5dc, transparent 45%),
+    linear-gradient(135deg, #f8e8c5, #ead1a4, #f6e5c2);
+  color: #493326;
+  border: 2px solid #b58b5c;
+  border-radius: 5px 12px 6px 10px;
+  box-shadow: 0 0 0 4px #e8d2aa, 0 12px 30px #0006;
+}
+
+#p3 .paper-note {
+  color: #65391f;
+}
+
+#p3 .message3 {
+  color: #432a1c;
+  font-size: clamp(15px, 2.2vw, 18px);
+  line-height: 1.8;
+}
+
+#p3 .letter-hearts {
+  color: #92552e;
+}
+
+/* Page 4: memory photo and delicate hearts/ribbons */
+#p4 .page-inner {
+  padding: 25px 18px 82px;
+}
+
+#p4 .memory-card {
+  position: relative;
+  z-index: 2;
+  width: min(88%, 560px);
+}
+
+#p4 .memory-card img {
+  border: 9px solid #f3e4c8;
+  outline: 1px solid #c6a77c;
+  box-shadow: 0 12px 35px #0007;
+}
+
+#p4 .memory-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+
+#p4 .memory-decor span {
+  position: absolute;
+  display: block;
+}
+
+#p4 .memory-heart {
+  color: #d99aa0;
+  text-shadow: 0 2px 5px #0005;
+  font-size: 25px;
+  animation: float 4s ease-in-out infinite;
+}
+
+#p4 .memory-ribbon {
+  width: 25px;
+  height: 38px;
+  border: 2px solid #c68c83;
+  background: #e8b6a7;
+  opacity: .9;
+  clip-path: polygon(0 0,100% 0,100% 100%,50% 75%,0 100%);
+}
+
+#p4 .memory-balloon {
+  width: 22px;
+  height: 29px;
+  border-radius: 50% 50% 45% 45%;
+  background: #dca0a1;
+  box-shadow: inset -4px -3px 5px #854f4f33;
+}
+
+#p4 .memory-balloon::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 10px;
+  height: 24px;
+  border-left: 1px solid #dca0a1;
+}
+
+#p4 .memory-decor .heart-a {top: 13%; left: 9%}
+#p4 .memory-decor .heart-b {top: 23%; right: 9%}
+#p4 .memory-decor .heart-c {bottom: 19%; left: 12%}
+#p4 .memory-decor .ribbon-a {top: 12%; right: 17%; transform: rotate(18deg)}
+#p4 .memory-decor .ribbon-b {bottom: 18%; right: 12%; transform: rotate(-15deg)}
+#p4 .memory-decor .balloon-a {top: 34%; left: 5%}
+#p4 .memory-decor .balloon-b {bottom: 28%; right: 5%; background: #c9a4c6}
+
+/* Pages 3, 4 and 5: navigation buttons at opposite corners */
+#p3 .prev-btn,
+#p4 .prev-btn,
+#p5 .prev-btn,
+#p6 .prev-btn {
+  position: absolute;
+  left: 14px;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  top: auto;
+  z-index: 1000;
+}
+
+#p3 .nav-hint,
+#p4 .nav-hint,
+#p5 .nav-hint {
+  position: absolute;
+  left: auto;
+  right: 14px;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  top: auto;
+  width: auto;
+  max-width: 58%;
+  z-index: 1000;
+  padding: 10px 14px;
+  text-align: center;
+  color: #fff0cf;
+  background: #68432e;
+  border: 1px solid #d8b47c;
+  border-radius: 24px;
+  font-weight: bold;
+  text-shadow: 0 1px 2px #321b10;
+}
+
+/* Vintage paper styling for Page 5 message */
+#p5 .last-message {
+  background:
+    radial-gradient(ellipse at 15% 10%, #fff5dc, transparent 45%),
+    linear-gradient(135deg, #f8e8c5, #ead1a4, #f6e5c2);
+  color: #432a1c;
+  border: 2px solid #b58b5c;
+  border-radius: 5px 12px 6px 10px;
+  box-shadow: 0 0 0 3px #e8d2aa, 0 8px 22px #0004;
+  text-align: left;
+  font-weight: normal;
+  line-height: 1.8;
+}
+
+#p5 .last-page {
+  padding-bottom: 95px;
+}
+
+/* Page 6: antique letter and dark reddish-brown button */
+#p6 .page-inner {
+  padding: 18px 12px 82px;
+  overflow-y: auto;
+}
+
+#p6 .paper {
+  width: min(94%, 560px);
+  flex-shrink: 0;
+  margin: 12px auto 20px;
+  padding: 38px 25px;
+  background:
+    radial-gradient(ellipse at 15% 10%, #fff5dc, transparent 45%),
+    linear-gradient(135deg, #f8e8c5, #ead1a4, #f6e5c2);
+  color: #432a1c;
+  border: 2px solid #b58b5c;
+  border-radius: 5px 12px 6px 10px;
+  box-shadow: 0 0 0 4px #e8d2aa, 0 12px 30px #0006;
+}
+
+#p6 .paper-note {
+  color: #65391f;
+}
+
+#p6 .message3 {
+  color: #432a1c;
+  line-height: 1.9;
+  font-size: clamp(16px, 3.8vw, 19px);
+}
+
+#p6 .replace-btn {
+  background: #713b2b;
+  color: #fff0cf;
+  border: 1px solid #a87551;
+  border-radius: 8px;
+  box-shadow: 0 5px 14px #59302055;
+  animation: none;
+}
+
+@media (max-width: 480px) {
+  #p3 .paper {padding: 30px 20px}
+  #p3 .message3 {font-size: 15px; line-height: 1.75}
+  #p6 .paper {padding: 30px 20px}
+  #p3 .nav-hint,
+  #p4 .nav-hint,
+  #p5 .nav-hint {
+    font-size: 11px;
+    padding: 10px 11px;
+  }
+}
 </style>
 </head>
 <body>
@@ -870,9 +1080,18 @@ Happy Birthday jan 😘😘</div>
       <div class="memory-caption">A little memory, kept forever.</div>
     </div>
   </div>
-  <div class="nav-hint">Swipe to continue →</div>
+ <div class="memory-decor">
+    <span class="memory-heart heart-a">♡</span>
+    <span class="memory-heart heart-b">♥</span>
+    <span class="memory-heart heart-c">♡</span>
+    <span class="memory-ribbon ribbon-a"></span>
+    <span class="memory-ribbon ribbon-b"></span>
+    <span class="memory-balloon balloon-a"></span>
+    <span class="memory-balloon balloon-b"></span>
+  </div>
+  <button class="prev-btn" onclick="prev()">← Previous</button>
+  <div class="nav-hint" onclick="next()">Swipe to continue →</div>
 </section>
-
 <section class="page" id="p5">
   <div class="last-page">
     <div class="last-title">Happy Birthday Once Again, My husband 😘❤️</div>
@@ -955,7 +1174,7 @@ Happy Birthday oogloo bogloo 😜😘
 
 Keep smiling, always. ♡
       </div>
-      <button class="open-btn" onclick="show(0)">Replay the Surprise ↺</button>
+      <button class="open-btn replace-btn" onclick="show(0)">Replace Surprise ↺</button>
     </div>
   </div>
 

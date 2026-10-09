@@ -1160,27 +1160,24 @@ I really miss you my oogloo bogloo</div>
   <button class="prev-btn" onclick="prev()">← Previous</button>
   <div class="nav-hint" onclick="next()">Swipe to continue →</div>
 </section>
-
 <section class="page" id="p6">
   <div class="page-inner">
     <div class="paper" style="text-align:center;">
       <div class="paper-note">One Last Thing… ♡</div>
       <div class="message3" style="text-align:center;">
 No matter how many pages this surprise has,
-
 my favorite part will always be you.
-
 Happy Birthday oogloo bogloo 😜😘
-
 Keep smiling, always. ♡
       </div>
-      <button class="open-btn replace-btn" onclick="show(0)">Replace Surprise ↺</button>
+      <button class="open-btn replace-btn" onclick="show(0)">Replay the Surprise ↺</button>
     </div>
   </div>
 </section>
 </div>
 <script>  
 const pages=[...document.querySelectorAll('.page')];
+  console.log(pages.map((p, i) => `${i}: ${p.id}`).join(', '));
 let current=0, locked=false;
 
 function show(i) {

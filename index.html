@@ -584,16 +584,23 @@ body{touch-action:none}
   line-height: 1.4;
 }
 
+
 #p3 .message3 {
   position: relative;
   z-index: 2;
-  padding: 0 8px;
-  font-size: clamp(15px, 4vw, 18px);
-  line-height: 1.75;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.65;
+  text-align: left;
   white-space: pre-line;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
   word-break: normal;
 }
+
 
 #p3 .letter-hearts {
   z-index: 1;
@@ -677,9 +684,6 @@ body{touch-action:none}
   <div class="page2-caption">Swipe to continue →</div>
 </section>
 
-<section class="page" id="p3">
-  <div class="page-inner">
- 
 <section class="page" id="p3">
   <div class="page-inner">
     <div class="paper">
@@ -800,7 +804,6 @@ function show(i) {
 
   current = i;
 }
-
 function next() {
   show(current + 1);
 }
@@ -808,8 +811,6 @@ function next() {
 function prev() {
   show(current - 1);
 }
-
-function next(){show(current+1)}
   function playBirthdayEffects(){
   const area = document.getElementById('birthdayEffects');
   if(!area) return;

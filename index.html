@@ -122,6 +122,58 @@ body{touch-action:none}
     inset 0 0 24px rgba(133,91,43,.18),
     inset 0 0 0 5px rgba(255,250,225,.22);
 }
+  
+.paper {
+  position: relative;
+  box-sizing: border-box;
+  width: min(92%, 560px);
+  margin: 20px auto;
+  padding: 38px 22px;
+  background: #f3e4c8;
+  color: #493326;
+  border: 1px solid #c6a77c;
+  border-radius: 3px 8px 5px 6px;
+  box-shadow: 0 8px 22px rgba(65, 39, 22, 0.2);
+  overflow: hidden;
+}
+
+.paper::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(139, 99, 60, 0.35);
+  pointer-events: none;
+}
+
+  
+.letter-hearts {
+  position: absolute;
+  top: 45%;
+  color: #a64d58;
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 4px;
+  width: 24px;
+  overflow-wrap: anywhere;
+  opacity: 0.85;
+}
+
+.left-hearts {
+  left: 8px;
+}
+
+.right-hearts {
+  right: 8px;
+}
+
+.vintage-pen {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-size: 22px;
+  transform: rotate(-25deg);
+}
+
 
 .paper:before{
   content:'';
@@ -157,14 +209,18 @@ body{touch-action:none}
   letter-spacing:.06em;
 }
 
-.message3{
-  white-space:pre-line;
-  text-align:center;
-  font-family:Georgia,'Times New Roman',serif;
-  font-size:clamp(16px,4vw,23px);
-  line-height:1.75;
-  color:#49331f;
+
+.message3 {
+  position: relative;
+  z-index: 1;
+  padding: 24px 32px;
+  font-size: 15px;
+  line-height: 1.9;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  color: #493326;
 }
+
 .vintage-pen{
   text-align:right;
   font-size:42px;
@@ -444,6 +500,20 @@ body{touch-action:none}
 }
 
 .nav-hint{position:absolute;bottom:max(12px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:rgba(255,255,255,.68);font:12px 'Trebuchet MS',sans-serif;z-index:5;cursor:pointer;letter-spacing:.05em}
+  
+.prev-btn {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  z-index: 20;
+  padding: 9px 16px;
+  border: 1px solid #b99a78;
+  border-radius: 20px;
+  background: #f3e4c8;
+  color: #493326;
+  font-size: 13px;
+  cursor: pointer;
+}
 #p3 .nav-hint,#p4 .nav-hint{color:rgba(80,49,55,.65)}
 .hidden{display:none}
 
@@ -489,10 +559,18 @@ body{touch-action:none}
 
 <section class="page" id="p3">
   <div class="page-inner">
-   <div class="paper">
-  <div class="paper-note">From my heart to yours ♡</div>
-     <div class="vintage-pen" aria-hidden="true">✒</div>
-  <div class="message3">Happy Birthday love😘😘👩‍❤️‍💋‍👨🎂
+ 
+<section class="page" id="p3">
+  <div class="page-inner">
+    <div class="paper">
+      <div class="paper-note">From my heart to yours ♡</div>
+
+      <div class="letter-hearts left-hearts">♡ ♥ ♡</div>
+      <div class="letter-hearts right-hearts">♥ ♡ ♥</div>
+
+      <div class="vintage-pen" aria-hidden="true">🖊️</div>
+
+      <div class="message3">Happy Birthday love😘😘👩‍❤️‍💋‍👨🎂
 You are my life, my peace, and my favorite blessing.
 May Allah fill your year with health, joy, and success.
 I love you more every single day.😘
@@ -504,6 +582,8 @@ Thank you for adding colour in my life and make it so beautiful.😍😘
 Happy Birthday jan 😘😘</div>
     </div>
   </div>
+ 
+<button class="prev-btn" onclick="prev()">← Previous</button>
   <div class="nav-hint">Swipe to continue →</div>
 </section>
 

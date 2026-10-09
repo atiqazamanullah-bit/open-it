@@ -665,6 +665,157 @@ body{touch-action:none}
     font-size: 12px;
   }
 }
+
+/* ===== FINAL VINTAGE DESIGN ===== */
+#p3 .page-inner {
+  justify-content: flex-start;
+  padding: 22px 14px 82px;
+}
+
+#p3 .paper {
+  flex-shrink: 0;
+  width: min(94%, 620px);
+  max-height: none;
+  margin: 12px auto 20px;
+  padding: 38px clamp(22px, 5vw, 48px);
+  overflow: visible;
+  background:
+    radial-gradient(ellipse at 15% 10%, #fff5dc, transparent 45%),
+    linear-gradient(135deg, #f8e8c5, #ead1a4, #f6e5c2);
+  border: 2px solid #b58b5c;
+  border-radius: 5px 12px 6px 10px;
+  box-shadow: 0 0 0 5px #e8d2aa, 0 12px 30px #0006;
+}
+
+#p3 .paper-note {
+  font-size: clamp(22px, 4vw, 30px);
+  color: #65391f;
+  margin-bottom: 25px;
+}
+
+#p3 .message3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(15px, 2.2vw, 18px);
+  line-height: 1.8;
+  color: #432a1c;
+}
+
+#p3 .letter-hearts {
+  color: #92552e;
+}
+
+#p5 .last-page {
+  justify-content: flex-start;
+  padding: 24px 12px 82px;
+  gap: 12px;
+}
+
+#p5 .last-title {
+  color: #f6e2c0;
+  font-size: clamp(22px, 4vw, 32px);
+}
+
+#p5 .memory-wall {
+  width: min(94%, 500px);
+  padding: 14px;
+  background: linear-gradient(135deg, #f6e5c3, #e7cca0);
+  border: 2px solid #b58b5c;
+  box-shadow: 0 10px 28px #0006;
+}
+
+#p5 .wooden-rod {
+  width: 96%;
+}
+
+#p5 .hanging-photos {
+  gap: 12px 9px;
+  padding: 0 5px 6px;
+}
+
+#p5 .hang {
+  padding-top: 18px;
+}
+
+#p5 .hang img {
+  height: clamp(72px, 14vw, 105px);
+  object-fit: cover;
+  padding: 5px;
+  background: #fff2d5;
+  border: 1px solid #c4a16c;
+  border-radius: 2px;
+  box-shadow: 0 4px 9px #0003;
+}
+
+#p5 .last-message {
+  width: min(94%, 500px);
+  flex-shrink: 0;
+  margin: 8px auto 10px;
+  padding: 22px 20px;
+  border: 2px solid #b58b5c;
+  border-radius: 5px 10px 6px 9px;
+  background:
+    radial-gradient(ellipse at 15% 10%, #fff5dc, transparent 45%),
+    linear-gradient(135deg, #f8e8c5, #ead1a4, #f6e5c2);
+  color: #432a1c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(14px, 2vw, 17px);
+  line-height: 1.8;
+  font-weight: normal;
+  box-shadow: 0 7px 20px #0004;
+}
+
+#p3 .nav-hint,
+#p4 .nav-hint,
+#p5 .nav-hint {
+  color: #fff0cf;
+  background: #68432e;
+  border: 1px solid #d8b47c;
+  border-radius: 24px;
+  padding: 10px 14px;
+  text-shadow: 0 1px 2px #321b10;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  #p3 .page-inner {
+    padding: 12px 10px 76px;
+  }
+
+  #p3 .paper {
+    padding: 30px 20px;
+  }
+
+  #p3 .message3 {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  #p5 .last-page {
+    padding: 16px 8px 82px;
+    gap: 10px;
+  }
+
+  #p5 .memory-wall {
+    width: 96%;
+    padding: 9px;
+  }
+
+  #p5 .hanging-photos {
+    gap: 9px 6px;
+  }
+
+  #p5 .hang img {
+    height: clamp(68px, 22vw, 88px);
+    padding: 4px;
+  }
+
+  #p5 .last-message {
+    padding: 16px 13px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -783,11 +934,35 @@ Ap k meri zindagi mei ana or us k bd mery dill k itny qareeb ho jana or meri ruh
 Ap meri leya meri sanso sy barh k ho ap k bager mei apni zindagi k tasawar nhi kr sakti
 I love you my love😘😘😘😘
 I really miss you my oogloo bogloo</div>
+ 
     <div class="divider">♡</div>
   </div>
+
+  <button class="prev-btn" onclick="prev()">← Previous</button>
+  <div class="nav-hint" onclick="next()">Swipe to continue →</div>
+</section>
+
+<section class="page" id="p6">
+  <div class="page-inner">
+    <div class="paper" style="text-align:center;">
+      <div class="paper-note">One Last Thing… ♡</div>
+      <div class="message3" style="text-align:center;">
+No matter how many pages this surprise has,
+
+my favorite part will always be you.
+
+Happy Birthday oogloo bogloo 😜😘
+
+Keep smiling, always. ♡
+      </div>
+      <button class="open-btn" onclick="show(0)">Replay the Surprise ↺</button>
+    </div>
+  </div>
+
+  <button class="prev-btn" onclick="prev()">← Previous</button>
 </section>
 </div>
-<script>
+<script>  
 const pages=[...document.querySelectorAll('.page')];
 let current=0, locked=false;
 
@@ -852,7 +1027,6 @@ function prev() {
     area.innerHTML = '';
   }, 5500);
 }
-function prev(){show(current-1)}
 document.getElementById('openBtn').addEventListener('click', () => {
   next();
   setTimeout(() => {
@@ -862,6 +1036,7 @@ document.getElementById('openBtn').addEventListener('click', () => {
 document.querySelector('#p2 .page2-caption').addEventListener('click',next);
  document.querySelector('#p3 .nav-hint').addEventListener('click',next); 
   document.querySelector('#p4 .nav-hint').addEventListener('click',next);
+  document.querySelector('#p5 .nav-hint').addEventListener('click',next);
 let sx=0,sy=0,st=0;
 document.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;sx=e.touches[0].clientX;sy=e.touches[0].clientY;st=Date.now()},{passive:true});
 document.addEventListener('touchend',e=>{if(!sx)return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;const dt=Date.now()-st;sx=0;if(dt>900||Math.abs(dx)<55||Math.abs(dx)<Math.abs(dy)*1.15)return;if(dx<0)next();else prev()},{passive:true});

@@ -545,6 +545,119 @@ body{touch-action:none}
   bottom:6%;
   transform:rotate(12deg);
 }
+
+/* Page 3: mobile vintage letter fix */
+#p3 {
+  position: relative;
+  overflow: hidden;
+}
+
+#p3 .page-inner {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 18px 12px 82px;
+  overflow-y: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+#p3 .paper {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 520px;
+  margin: 8px auto 20px;
+  padding: 34px 25px;
+  background: #f3e4c8;
+  color: #493326;
+  border: 2px solid #c6a77c;
+  border-radius: 5px 10px 4px 9px;
+  box-shadow: 0 8px 24px rgba(40, 23, 14, 0.3);
+}
+
+#p3 .paper-note {
+  margin: 0 28px 24px 0;
+  text-align: center;
+  font-size: clamp(19px, 5vw, 28px);
+  line-height: 1.4;
+}
+
+#p3 .message3 {
+  position: relative;
+  z-index: 2;
+  padding: 0 8px;
+  font-size: clamp(15px, 4vw, 18px);
+  line-height: 1.75;
+  white-space: pre-line;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+#p3 .letter-hearts {
+  z-index: 1;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+#p3 .left-hearts {
+  left: 5px;
+}
+
+#p3 .right-hearts {
+  right: 5px;
+}
+
+#p3 .vintage-pen {
+  top: 12px;
+  right: 16px;
+  font-size: 21px;
+  z-index: 3;
+}
+
+#p3 .prev-btn {
+  position: absolute;
+  left: 14px;
+  bottom: 18px;
+  top: auto;
+  z-index: 1000;
+}
+
+#p3 .nav-hint {
+  position: absolute;
+  right: 14px;
+  bottom: 27px;
+  left: auto;
+  top: auto;
+  width: auto;
+  max-width: 48%;
+  z-index: 1000;
+  text-align: right;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  #p3 .page-inner {
+    padding: 12px 10px 78px;
+  }
+
+  #p3 .paper {
+    padding: 28px 19px;
+  }
+
+  #p3 .message3 {
+    padding: 0 7px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  #p3 .nav-hint {
+    max-width: 48%;
+    font-size: 12px;
+  }
+}
 </style>
 </head>
 <body>

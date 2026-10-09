@@ -673,16 +673,29 @@ I really miss you my oogloo bogloo</div>
 <script>
 const pages=[...document.querySelectorAll('.page')];
 let current=0, locked=false;
-function show(i){
-  if(i<0||i>=pages.length||i===current||locked)return;
-  locked=true;
-  pages[current].classList.remove('active');
-  pages[current].classList.add(i>current?'prev':'active');
-  pages[i].classList.remove('prev');
-  pages[i].classList.add('active');
-  const old=current; current=i;
-  setTimeout(()=>{pages[old].classList.remove('prev');locked=false},600);
+
+function show(i) {
+  if (i < 0 || i >= pages.length) return;
+
+  pages.forEach((page, index) => {
+    page.classList.remove('active', 'prev');
+
+    if (index === i) {
+      page.classList.add('active');
+    }
+  });
+
+  current = i;
 }
+
+function next() {
+  show(current + 1);
+}
+
+function prev() {
+  show(current - 1);
+}
+
 function next(){show(current+1)}
   function playBirthdayEffects(){
   const area = document.getElementById('birthdayEffects');

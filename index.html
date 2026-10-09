@@ -39,39 +39,141 @@ body{touch-action:none}
   text-shadow:0 2px 10px rgba(235,145,160,.25);
 }
 /* Page 2 */
+  /* Birthday reveal effects */
+.birthday-effects{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:3;
+}
+
+.party-balloon{
+  position:absolute;
+  bottom:-140px;
+  width:42px;
+  height:54px;
+  border-radius:50% 50% 45% 45%;
+  opacity:0;
+  animation:balloonRise 4s ease-in forwards;
+}
+
+.party-balloon:after{
+  content:'';
+  position:absolute;
+  width:1px;
+  height:45px;
+  background:rgba(255,255,255,.65);
+  top:52px;
+  left:50%;
+}
+
+.party-confetti{
+  position:absolute;
+  top:-20px;
+  width:9px;
+  height:14px;
+  opacity:0;
+  animation:confettiFall 2.8s ease-in forwards;
+}
+
+@keyframes balloonRise{
+  0%{transform:translateY(0) rotate(-8deg);opacity:0}
+  12%{opacity:.95}
+  85%{opacity:.9}
+  100%{transform:translateY(-115vh) rotate(12deg);opacity:0}
+}
+
+@keyframes confettiFall{
+  0%{transform:translateY(0) rotate(0deg);opacity:0}
+  10%{opacity:1}
+  100%{transform:translateY(110vh) rotate(720deg);opacity:0}
+}
 #p2{background:#2a1d20}
 .hero-img{width:100%;max-width:520px;height:auto;max-height:78vh;object-fit:contain;object-position:center;display:block;filter:saturate(.98)}
 .page2-caption{position:absolute;bottom:max(24px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:#fff;font:600 15px 'Trebuchet MS',sans-serif;text-shadow:0 2px 8px #000;z-index:4;cursor:pointer}
 
-/* Page 3 */
+/* Page 3 - Antique Love Letter */
 #p3{
   background:
-    radial-gradient(circle at 15% 15%,rgba(216,125,143,.22),transparent 28%),
-    radial-gradient(circle at 85% 85%,rgba(137,61,79,.18),transparent 30%),
-    linear-gradient(145deg,#fffaf8,#f8e8e7 52%,#ead0d1);
+    radial-gradient(ellipse at 50% 45%,rgba(190,151,101,.18),transparent 65%),
+    linear-gradient(145deg,#241914,#493326 50%,#1c1310);
 }
+
+#p3 .page-inner{
+  padding:18px 14px;
+}
+
 .paper{
-  width:min(92%,760px);
+  width:min(94%,760px);
   max-height:92%;
   overflow:auto;
-  background:rgba(255,250,248,.88);
-  border:1px solid rgba(150,75,91,.25);
-  box-shadow:0 20px 60px rgba(75,35,45,.20),0 0 35px rgba(214,132,148,.12);
-  border-radius:26px;
-  padding:clamp(30px,7vw,58px) clamp(24px,8vw,70px);
   position:relative;
-  backdrop-filter:blur(8px);
+  isolation:isolate;
+  background:
+    radial-gradient(ellipse at 15% 12%,rgba(255,255,225,.8),transparent 35%),
+    radial-gradient(ellipse at 85% 88%,rgba(166,119,64,.16),transparent 40%),
+    linear-gradient(135deg,#f8edcf,#ead5a9 48%,#f5e5bf);
+  border:1px solid #b99a62;
+  border-radius:7px;
+  padding:clamp(38px,7vw,58px) clamp(22px,7vw,65px);
+  box-shadow:
+    0 22px 50px rgba(0,0,0,.5),
+    inset 0 0 24px rgba(133,91,43,.18),
+    inset 0 0 0 5px rgba(255,250,225,.22);
 }
-.paper:before,.paper:after{content:'♡';position:absolute;color:#d98b98;font-size:28px;opacity:.7}.paper:before{top:16px;left:20px}.paper:after{right:20px;bottom:12px}
-.message3{white-space:pre-line;text-align:center;font-size:clamp(17px,4.2vw,24px);line-height:1.75;color:#3b2b30}
 
-  .paper-note{
-  text-align:center;
-  color:#a75b6c;
-  font:italic 15px Georgia,serif;
-  margin-bottom:16px;
-  letter-spacing:.04em;
+.paper:before{
+  content:'';
+  position:absolute;
+  top:5px;
+  left:10px;
+  right:10px;
+  height:13px;
+  border-radius:50%;
+  background:linear-gradient(#d4b77e,#f8e9c5,#c5a36a);
+  box-shadow:0 3px 5px rgba(90,57,28,.2);
+  z-index:-1;
 }
+
+.paper:after{
+  content:'';
+  position:absolute;
+  bottom:5px;
+  left:10px;
+  right:10px;
+  height:13px;
+  border-radius:50%;
+  background:linear-gradient(#c5a36a,#f8e9c5,#d4b77e);
+  box-shadow:0 -3px 5px rgba(90,57,28,.15);
+  z-index:-1;
+}
+
+.paper-note{
+  text-align:center;
+  color:#875b31;
+  font:italic 16px Georgia,serif;
+  margin-bottom:18px;
+  letter-spacing:.06em;
+}
+
+.message3{
+  white-space:pre-line;
+  text-align:center;
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:clamp(16px,4vw,23px);
+  line-height:1.75;
+  color:#49331f;
+}
+.vintage-pen{
+  text-align:right;
+  font-size:42px;
+  line-height:1;
+  color:#70462b;
+  margin:0 4px 16px 0;
+  text-shadow:1px 2px 2px rgba(75,43,22,.25);
+  transform:rotate(-12deg);
+}  
 /* Page 4 */
 #p4{
   background:
@@ -150,12 +252,92 @@ body{touch-action:none}
 }
 
 /* Small cute photo clips */
-.collage{
-  width:min(82%,390px);
+/* Vintage hanging memory wall */
+.memory-wall{
+  width:min(96%,480px);
+  position:relative;
+  padding-top:12px;
+  margin:2px auto;
+}
+
+.wooden-rod{
+  height:12px;
+  width:96%;
+  margin:0 auto;
+  border-radius:8px;
+  background:linear-gradient(
+    180deg,#c9a16a,#81552f 45%,#54351f
+  );
+  box-shadow:0 4px 8px rgba(0,0,0,.35);
+  position:relative;
+  z-index:2;
+}
+
+.wooden-rod:before,
+.wooden-rod:after{
+  content:'';
+  position:absolute;
+  top:-5px;
+  width:9px;
+  height:22px;
+  border-radius:5px;
+  background:#d4b17c;
+}
+
+.wooden-rod:before{left:5px}
+.wooden-rod:after{right:5px}
+
+.hanging-photos{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:6px;
-  padding:3px;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px 7px;
+  padding:0 5px;
+}
+
+.hang{
+  position:relative;
+  margin:0;
+  padding-top:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.photo-string{
+  position:absolute;
+  top:-1px;
+  height:23px;
+  width:2px;
+  background:#c6a675;
+  box-shadow:1px 0 1px rgba(0,0,0,.2);
+}
+
+.hang img{
+  width:100%;
+  height:clamp(66px,18vw,92px);
+  object-fit:cover;
+  display:block;
+  padding:4px;
+  background:linear-gradient(145deg,#fff2d5,#d9b77f);
+  border:2px solid #c4a16c;
+  border-radius:3px;
+  box-shadow:0 5px 12px rgba(0,0,0,.35);
+}
+
+.hang-1{transform:rotate(-3deg);margin-top:0}
+.hang-2{transform:rotate(2deg);margin-top:10px}
+.hang-3{transform:rotate(-2deg);margin-top:2px}
+.hang-4{transform:rotate(2deg);margin-top:8px}
+.hang-5{transform:rotate(-2deg);margin-top:0}
+.hang-6{transform:rotate(3deg);margin-top:11px}
+.hang-7{transform:rotate(-2deg);margin-top:1px}
+.hang-8{transform:rotate(2deg);margin-top:9px}
+.hang-9{transform:rotate(-3deg);margin-top:0}
+
+@media(min-width:700px){
+  .memory-wall{width:390px}
+  .hanging-photos{gap:15px 9px}
+  .hang img{height:95px}
 }
 
 .collage figure{
@@ -223,19 +405,6 @@ body{touch-action:none}
   font-size:clamp(14px,3.6vw,18px);
   line-height:1.55;
   box-shadow:0 12px 30px rgba(0,0,0,.30),0 0 22px rgba(225,137,153,.13);
-}
-  width:min(88%,470px);
-  background:rgba(255,248,244,.98);
-  color:#3a2a2f;
-  border-radius:20px;
-  padding:17px 18px;
-  white-space:pre-line;
-  text-align:center;
-  font-family:Georgia,serif;
-  font-weight:600;
-  font-size:clamp(14px,3.6vw,18px);
-  line-height:1.55;
-  box-shadow:0 8px 22px rgba(0,0,0,.24);
 }
 
 @media(min-width:700px){
@@ -310,6 +479,7 @@ body{touch-action:none}
 </section>
 
 <section class="page" id="p2">
+  <div class="birthday-effects" id="birthdayEffects"></div>
   <img class="hero-img" src="page2_cat_cake.png" alt="Cute cat holding a birthday cake for Jan">
   <div class="page2-caption">Swipe to continue →</div>
 </section>
@@ -318,6 +488,7 @@ body{touch-action:none}
   <div class="page-inner">
    <div class="paper">
   <div class="paper-note">From my heart to yours ♡</div>
+     <div class="vintage-pen" aria-hidden="true">✒</div>
   <div class="message3">Happy Birthday love😘😘👩‍❤️‍💋‍👨🎂
 You are my life, my peace, and my favorite blessing.
 May Allah fill your year with health, joy, and success.
@@ -349,16 +520,55 @@ Happy Birthday jan 😘😘</div>
     <div class="last-title">Happy Birthday Once Again, My husband 😘❤️</div>
    
     <div class="divider">♡</div>
-    <div class="collage">
-       <figure><img src="memory_collage_1.jpg" alt="Memory photo 1"></figure>
-  <figure><img src="memory_collage_2.jpg" alt="Memory photo 2"></figure>
-  <figure><img src="memory_collage_3.jpg" alt="Memory photo 3"></figure>
-  <figure><img src="memory_collage_4.jpg" alt="Memory photo 4"></figure>
-  <figure><img src="memory_collage_5.jpg" alt="Memory photo 5"></figure>
-  <figure><img src="memory_collage_6.jpg" alt="Memory photo 6"></figure>
-  <figure><img src="memory_collage_7.jpg" alt="Memory photo 7"></figure>
-  <figure><img src="memory_collage_8.jpg" alt="Memory photo 8"></figure>
-  <figure><img src="memory_collage_9.jpg" alt="Memory photo 9"></figure>
+   <div class="memory-wall">
+  <div class="wooden-rod"></div>
+
+  <div class="hanging-photos">
+    <figure class="hang hang-1">
+      <span class="photo-string"></span>
+      <img src="memory_collage_1.jpg" alt="Memory photo 1">
+    </figure>
+
+    <figure class="hang hang-2">
+      <span class="photo-string"></span>
+      <img src="memory_collage_2.jpg" alt="Memory photo 2">
+    </figure>
+
+    <figure class="hang hang-3">
+      <span class="photo-string"></span>
+      <img src="memory_collage_3.jpg" alt="Memory photo 3">
+    </figure>
+
+    <figure class="hang hang-4">
+      <span class="photo-string"></span>
+      <img src="memory_collage_4.jpg" alt="Memory photo 4">
+    </figure>
+
+    <figure class="hang hang-5">
+      <span class="photo-string"></span>
+      <img src="memory_collage_5.jpg" alt="Memory photo 5">
+    </figure>
+
+    <figure class="hang hang-6">
+      <span class="photo-string"></span>
+      <img src="memory_collage_6.jpg" alt="Memory photo 6">
+    </figure>
+
+    <figure class="hang hang-7">
+      <span class="photo-string"></span>
+      <img src="memory_collage_7.jpg" alt="Memory photo 7">
+    </figure>
+
+    <figure class="hang hang-8">
+      <span class="photo-string"></span>
+      <img src="memory_collage_8.jpg" alt="Memory photo 8">
+    </figure>
+
+    <figure class="hang hang-9">
+      <span class="photo-string"></span>
+      <img src="memory_collage_9.jpg" alt="Memory photo 9">
+    </figure>
+  </div>
 </div>
     <div class="last-message">Mei ap sy bhut muhabat krti hu jan ap k sath apni zindagi k hr moment jena chati hu
 I really really love you 😘
@@ -384,8 +594,54 @@ function show(i){
   setTimeout(()=>{pages[old].classList.remove('prev');locked=false},600);
 }
 function next(){show(current+1)}
+  function playBirthdayEffects(){
+  const area = document.getElementById('birthdayEffects');
+  if(!area) return;
+
+  area.innerHTML = '';
+
+  const balloonColors = [
+    '#ff6b81','#ffd166','#9bdeac',
+    '#79c7ff','#c8a2ff','#ff9fba'
+  ];
+
+  for(let i = 0; i < 10; i++){
+    const balloon = document.createElement('span');
+    balloon.className = 'party-balloon';
+    balloon.style.left = (4 + Math.random() * 88) + '%';
+    balloon.style.background = balloonColors[i % balloonColors.length];
+    balloon.style.animationDelay = (Math.random() * 1.2) + 's';
+    area.appendChild(balloon);
+  }
+
+  const confettiColors = [
+    '#ff4d6d','#ffd166','#06d6a0',
+    '#4cc9f0','#c77dff','#ffffff'
+  ];
+
+  for(let i = 0; i < 55; i++){
+    const piece = document.createElement('span');
+    piece.className = 'party-confetti';
+    piece.style.left = Math.random() * 100 + '%';
+    piece.style.background =
+      confettiColors[i % confettiColors.length];
+    piece.style.animationDelay = (Math.random() * 1.5) + 's';
+    piece.style.animationDuration =
+      (2.2 + Math.random() * 1.5) + 's';
+    area.appendChild(piece);
+  }
+
+  setTimeout(() => {
+    area.innerHTML = '';
+  }, 5500);
+}
 function prev(){show(current-1)}
-  document.getElementById('openBtn').addEventListener('click',next);
+document.getElementById('openBtn').addEventListener('click', () => {
+  next();
+  setTimeout(() => {
+    playBirthdayEffects();
+  }, 250);
+});
 document.querySelector('#p2 .page2-caption').addEventListener('click',next);
  document.querySelector('#p3 .nav-hint').addEventListener('click',next); 
   document.querySelector('#p4 .nav-hint').addEventListener('click',next);
